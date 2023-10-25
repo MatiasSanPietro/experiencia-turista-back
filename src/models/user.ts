@@ -14,7 +14,7 @@ export const User = sequelize.define("user", {
   },
   phone: {
     type: DataTypes.STRING(20),
-    allowNull: false,
+    allowNull: false, //true
   },
   password: {
     type: DataTypes.STRING,
