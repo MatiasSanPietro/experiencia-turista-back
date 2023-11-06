@@ -10,7 +10,6 @@ export const getActivities = async (req: Request, res: Response) => {
   }
 };
 
-// Obtener una actividad por su ID
 export const getActivitiesById = async (req: Request, res: Response) => {
   const activityId = req.params.id;
   try {
@@ -25,27 +24,64 @@ export const getActivitiesById = async (req: Request, res: Response) => {
   }
 };
 
-// Crear una nueva actividad
 export const createActivity = async (req: Request, res: Response) => {
-  const { name, price, detail, image } = req.body;
+  const {
+    name,
+    price,
+    detail,
+    activity_type,
+    departure_times,
+    is_excursion,
+    image,
+    notes,
+  } = req.body;
+
   try {
-    const newActivity = await Activity.create({ name, price, detail, image });
+    const newActivity = await Activity.create({
+      name,
+      price,
+      detail,
+      activity_type,
+      departure_times,
+      is_excursion,
+      image,
+      notes,
+    });
+
     res.status(201).json(newActivity);
   } catch (error) {
     res.status(400).json({ error: "Error al crear la actividad" });
   }
 };
 
-// Actualizar una actividad por su ID
 export const updateActivity = async (req: Request, res: Response) => {
   const activityId = req.params.id;
-  const { name, price, detail, image } = req.body;
+  const {
+    name,
+    price,
+    detail,
+    activity_type,
+    departure_times,
+    is_excursion,
+    image,
+    notes,
+  } = req.body;
+
   try {
     const activity = await Activity.findByPk(activityId);
     if (!activity) {
       res.status(404).json({ error: "Actividad no encontrada" });
     } else {
-      await activity.update({ name, price, detail, image });
+      await activity.update({
+        name,
+        price,
+        detail,
+        activity_type,
+        departure_times,
+        is_excursion,
+        image,
+        notes,
+      });
       res.json(activity);
     }
   } catch (error) {
@@ -53,7 +89,6 @@ export const updateActivity = async (req: Request, res: Response) => {
   }
 };
 
-// Eliminar una actividad por su ID
 export const deleteActivity = async (req: Request, res: Response) => {
   const activityId = req.params.id;
   try {

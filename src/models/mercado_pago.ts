@@ -1,19 +1,17 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db/connection";
+import { Order } from "./orders";
 
-export const User = sequelize.define("user", {
+export const Mercado = sequelize.define("mercado", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  username: {
-    type: DataTypes.STRING,
-    unique: true,
-    allowNull: false,
-  },
-  password: {
-    type: DataTypes.STRING,
+  orderId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 });
+
+Mercado.belongsTo(Order, { foreignKey: "orderId" });

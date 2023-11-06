@@ -1,19 +1,26 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db/connection";
 
-export const User = sequelize.define("user", {
+export const Order = sequelize.define("order", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  username: {
-    type: DataTypes.STRING,
-    unique: true,
+  amount: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  password: {
+  user_name: {
     type: DataTypes.STRING,
+    allowNull: false,
+  },
+  user_phone: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  confirmed_payment: {
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
 });
