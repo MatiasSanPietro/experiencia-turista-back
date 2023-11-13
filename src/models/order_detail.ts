@@ -17,8 +17,8 @@ export const OrderDetails = sequelize.define("order_details", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  quantity: {
-    type: DataTypes.INTEGER,
+  confirmed_payment: {
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
 });

@@ -7,20 +7,12 @@ export const Order = sequelize.define("order", {
     primaryKey: true,
     autoIncrement: true,
   },
-  amount: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
   user_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
   user_phone: {
     type: DataTypes.STRING,
-    allowNull: false,
-  },
-  confirmed_payment: {
-    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
 });

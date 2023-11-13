@@ -49,8 +49,13 @@ export const createActivity = async (req: Request, res: Response) => {
     });
 
     res.status(201).json(newActivity);
-  } catch (error) {
-    res.status(400).json({ error: "Error al crear la actividad" });
+  } catch (error: any) {
+    if (error.name === "SequelizeValidationError") {
+      const errorMessages = error.errors.map((err: any) => err.message);
+      res.status(400).json({ error: errorMessages });
+    } else {
+      res.status(400).json({ error: "Error al crear la actividad" });
+    }
   }
 };
 
@@ -84,8 +89,13 @@ export const updateActivity = async (req: Request, res: Response) => {
       });
       res.json(activity);
     }
-  } catch (error) {
-    res.status(500).json({ error: "Error al actualizar la actividad" });
+  } catch (error: any) {
+    if (error.name === "SequelizeValidationError") {
+      const errorMessages = error.errors.map((err: any) => err.message);
+      res.status(400).json({ error: errorMessages });
+    } else {
+      res.status(400).json({ error: "Error al crear la actividad" });
+    }
   }
 };
 

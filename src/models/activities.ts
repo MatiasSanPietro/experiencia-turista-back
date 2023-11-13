@@ -10,10 +10,26 @@ export const Activity = sequelize.define("activity", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notNull: {
+        msg: "nombre no puede ser nulo",
+      },
+      notEmpty: {
+        msg: "nombre es obligatorio",
+      },
+    },
   },
   price: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    validate: {
+      notNull: {
+        msg: "precio no puede ser nulo",
+      },
+      notEmpty: {
+        msg: "precio es obligatorio",
+      },
+    },
   },
   detail: {
     type: DataTypes.STRING,
