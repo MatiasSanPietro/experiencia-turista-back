@@ -4,6 +4,7 @@ import routesActivities from "./routes/activities";
 import routesUsers from "./routes/user";
 import routesOrders from "./routes/orders";
 import routesMercado from "./routes/mercadopago";
+import routesCheckout from "./routes/checkout";
 import dotenv from "dotenv";
 import sequelize from "./db/connection";
 import morgan from "morgan";
@@ -19,6 +20,7 @@ app.use("/api", routesActivities);
 app.use("/api/users", routesUsers);
 app.use("/api", routesOrders);
 app.use("/api", routesMercado);
+app.use("/api", routesCheckout);
 
 const init = async () => {
   try {

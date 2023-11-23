@@ -17,6 +17,10 @@ export const Activity = sequelize.define("activity", {
       notEmpty: {
         msg: "nombre es obligatorio",
       },
+      len: {
+        args: [0, 255],
+        msg: "nombre no puede exceder los 255 caracteres",
+      },
     },
   },
   price: {
@@ -29,12 +33,29 @@ export const Activity = sequelize.define("activity", {
       notEmpty: {
         msg: "precio es obligatorio",
       },
+      len: {
+        args: [0, 255],
+        msg: "precio no puede exceder los 255 caracteres",
+      },
     },
   },
   detail: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(500),
     allowNull: false,
+    validate: {
+      notNull: {
+        msg: "detalle no puede ser nulo",
+      },
+      notEmpty: {
+        msg: "detalle es obligatorio",
+      },
+      len: {
+        args: [0, 500],
+        msg: "detalle no puede exceder los 500 caracteres",
+      },
+    },
   },
+
   activity_type: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -46,6 +67,14 @@ export const Activity = sequelize.define("activity", {
   is_excursion: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
+    validate: {
+      notNull: {
+        msg: "is_excursion no puede ser nulo",
+      },
+      notEmpty: {
+        msg: "is_excursion es obligatorio",
+      },
+    },
   },
   image: {
     type: DataTypes.STRING,

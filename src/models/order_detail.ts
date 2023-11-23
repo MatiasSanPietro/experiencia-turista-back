@@ -20,6 +20,7 @@ export const OrderDetails = sequelize.define("order_details", {
   confirmed_payment: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
+    defaultValue: false,
   },
 });
 
