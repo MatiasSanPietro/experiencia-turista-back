@@ -38,6 +38,7 @@ Crear un archivo .env en la raiz del proyecto con la siguiente informacion:
 
 (Completar los datos con su configuracion de MySQL)
 
+```
 DB_USERNAME= ""
 DB_PASSWORD= ""
 DATABASE= "expturista"
@@ -124,3 +125,4 @@ Devuelve un init_point con el link para redireccionar a la pagina de MP y comple
 ### Para hacer:
 
 - Al realizar el pago guardar los datos del pago, usuario y actividad seleccionada en la base de datos.
+```
