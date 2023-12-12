@@ -27,7 +27,7 @@ const init = async () => {
     await sequelize.authenticate();
     console.log("Connection to the database successful.");
 
-    await sequelize.sync({ force: true }); //{ force: true }
+    await sequelize.sync(); //{ force: true }
 
     app.listen(port, () => {
       console.log("Running in port " + port);
