@@ -38,7 +38,7 @@ Crear un archivo .env en la raiz del proyecto con la siguiente informacion:
 
 (Completar los datos con su configuracion de MySQL)
 
-```
+\```
 DB_USERNAME= ""
 DB_PASSWORD= ""
 DATABASE= "expturista"
@@ -47,6 +47,7 @@ DB_HOST= "localhost"
 
 MERCADOPAGO_API_KEY= "" // Completar con la key de su cuenta de mercado pago.
 SECRET_KEY = ""
+\```
 
 npm install
 
@@ -59,6 +60,7 @@ npm run dev
 ### Login/Register para Administracion:
 
 POST:
+\```
 http://localhost:3001/api/users/register
 
 http://localhost:3001/api/users/login
@@ -68,12 +70,14 @@ JSON:
 "username": "",
 "password": ""
 }
+\```
 
 Devuelve un token de validacion si el usuario es correcto.
 
 ### Operaciones CRUD para actividades:
 
 POST/GET:
+\```
 http://localhost:3001/api/activities/
 
 PUT/DELETE/GET:
@@ -90,10 +94,12 @@ JSON:
 "image": "",
 "notes": ""
 }
+\```
 
 ### Comenzar Checkout:
 
 POST:
+\```
 http://localhost:3001/api/checkout/start
 
 JSON:
@@ -102,10 +108,12 @@ JSON:
 "user_phone": "",
 "activityId":
 }
+\```
 
 ### Crear orden de Mercado Pago:
 
 POST:
+\```
 http://localhost:3001/api/create-order
 
 JSON:
@@ -119,10 +127,10 @@ JSON:
 }
 ]
 }
+\```
 
 Devuelve un init_point con el link para redireccionar a la pagina de MP y completar el pago.
 
 ### Para hacer:
 
 - Al realizar el pago guardar los datos del pago, usuario y actividad seleccionada en la base de datos.
-```
