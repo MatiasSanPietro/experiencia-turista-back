@@ -113,7 +113,8 @@ JSON:
 ### Crear orden de Mercado Pago:
 
 POST:
-\```
+
+```
 http://localhost:3001/api/create-order
 
 JSON:
@@ -127,7 +128,7 @@ JSON:
 }
 ]
 }
-\```
+```
 
 Devuelve un init_point con el link para redireccionar a la pagina de MP y completar el pago.
 
